@@ -4,7 +4,7 @@ A simple snake game written in python using curses and random libraries. This ga
 
 ## How to play
 
-Just run the snakes.py file in the terminal. 
+Just run the snake.py file in the terminal. 
 
 ## Screenshot
 ![alt text](https://raw.githubusercontent.com/championballer/Snakes/master/Image1.png)
