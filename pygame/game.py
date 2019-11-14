@@ -5,6 +5,10 @@ import random
 import pygame
 import tkinter as tk
 from tkinter import messagebox
+import sys
+if sys.platform == 'darwin':
+    import matplotlib
+    matplotlib.use('TkAgg')
 
 class cube(object):
     rows = 20
@@ -51,7 +55,9 @@ class snake(object):
     def move(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                pygame.display.quit()
                 pygame.quit()
+                exit()
 
             keys = pygame.key.get_pressed()
 
@@ -75,6 +81,11 @@ class snake(object):
                     self.dirnx = 0
                     self.dirny = 1
                     self.turns[self.head.pos[:]] = [self.dirnx, self.dirny]
+
+                elif keys[pygame.K_ESCAPE]:
+                    pygame.display.quit()
+                    pygame.quit()
+                    exit()
 
         for i, c in enumerate(self.body):
             p = c.pos[:]
@@ -162,18 +173,6 @@ def randomSnack(rows, item):
         
     return (x,y)
 
-
-def message_box(subject, content):
-    root = tk.Tk()
-    root.attributes("-topmost", True)
-    root.withdraw()
-    messagebox.showinfo(subject, content)
-    try:
-        root.destroy()
-    except:
-        pass
-
-
 def main():
     global width, rows, s, snack
     width = 500
@@ -183,6 +182,7 @@ def main():
 
     s = snake((255,0,0), (10,10))
     snack = cube(randomSnack(rows, s), color=(0,255,0))
+
     flag = True
 
     clock = pygame.time.Clock()
@@ -198,7 +198,6 @@ def main():
         for x in range(len(s.body)):
             if s.body[x].pos in list(map(lambda z:z.pos,s.body[x+1:])):
                 print('Score: ', len(s.body))
-                message_box('You Lost!', 'Play again...')
                 s.reset((10,10))
                 break
 

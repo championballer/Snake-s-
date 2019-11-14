@@ -1,0 +1,1 @@
+This environment is an openai gym wrapper for the snakeai game written in pygame for the summer training project after 6th semester at NSIT. 
