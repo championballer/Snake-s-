@@ -8,3 +8,5 @@ Just run the snake.py file in the terminal.
 
 ## Screenshot
 ![alt text](https://raw.githubusercontent.com/championballer/Snakes/master/Image1.png)
+![alt text](https://raw.githubusercontent.com/championballer/Snakes/master/pygame/screen.jpg)
+
