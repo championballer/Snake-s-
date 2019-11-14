@@ -125,6 +125,7 @@ class snake(object):
                 c.draw(surface)
 
 
+#Not required since cells are not being drawn after all 
 def drawGrid(w, rows, surface):
     sizeBtwn = w // rows
 
@@ -143,7 +144,7 @@ def redrawWindow(surface):
     surface.fill((0,0,0))
     s.draw(surface)
     snack.draw(surface)
-    drawGrid(width,rows, surface)
+    #drawGrid(width,rows, surface)
     pygame.display.update()
 
 
@@ -178,6 +179,8 @@ def main():
     width = 500
     rows = 20
     win = pygame.display.set_mode((width, width))
+    pygame.display.set_caption('snake.ai')
+
     s = snake((255,0,0), (10,10))
     snack = cube(randomSnack(rows, s), color=(0,255,0))
     flag = True
